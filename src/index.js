@@ -1,33 +1,73 @@
+'use strict';
+
 import Handlebars from "handlebars";
 import tpl from 'bundle-text:./index.hbs';
 import './style.less';
 import submit from './templates/components/submit';
+import input from './templates/components/input';
 import form1 from './templates/pages/autorization';
 import form2 from './templates/pages/registration';
+import page404 from './templates/pages/page404';
+import page500 from './templates/pages/page500';
 
-function indexPage() {
+console.log(window.location.protocol);
+
+function signinPage() {
 	const comp = Handlebars.compile(tpl);
 	const res = comp({
-		form1: form1({ submit: submit('signin','Авторизироваться') })
+		form1: form1({login: input('login','Логин','text'),
+							password: input('password','Пароль','password'),
+							submit: submit('signin','Войти')})
 	});
 	return res;
 }
+
 function regPage() {
 	const comp = Handlebars.compile(tpl);
 	const res = comp({
-		form2: form2({ submit: submit('signin','Авторизироваться') })
+		form2: form2({mail: input('email','Почта','text'),
+							login: input('login','Логин','text'),
+			                name: input('first_name','Имя','text'),
+							surname: input('second_name','Фамилия','text'),
+							phone: input('phone','Телефон','text'),
+							password: input('password','Пароль','password'),
+							passwordonemore: input('password','Пароль еще раз','password'),
+							submit: submit('signin','Зарегистрироваться')})
 	});
 	return res;
 }
 
-if (window.location.href=='/') {
-	document.getElementById('root').innerHTML = indexPage();
-} else if (window.location.href=='/registration') {
-	document.getElementById('root').innerHTML = regPage();
-} else {
-	document.getElementById('root').innerHTML = indexPage();
+function notfoundPage() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		page404: page404()
+	});
+	return res;
 }
 
+function fixingPage() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		page500: page500()
+	});
+	return res;
+}
+
+if (window.location.href == window.location.protocol + "//" + window.location.host + '/autorization') {
+	document.getElementById('root').innerHTML = signinPage();
+} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/registration') {
+	document.getElementById('root').innerHTML = regPage();
+} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/page404') {
+	document.getElementById('root').innerHTML = notfoundPage();
+} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/page500') {
+	document.getElementById('root').innerHTML = fixingPage();
+} else {
+	document.getElementById('root').innerHTML = signinPage();
+}
+
+document.getElementById('root').querySelector('a').addEventListener('click', (e) => {
+
+})
 
 
 
