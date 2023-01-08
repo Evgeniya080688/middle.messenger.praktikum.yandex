@@ -58,16 +58,17 @@ html, body {
     line-height: 1.4em;
   }
 
-
-.row
-{
-  display:flex;
-  justify-content: flex-start;
-  align-content: flex-start;
-}
-
-.col
-{
-  flex-basis: 50%;
-
+.main-menu {
+  ul {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 100%;
+    li {
+      list-style: none;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
 }

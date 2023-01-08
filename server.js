@@ -2,12 +2,13 @@ const express = require('express');
 
 const app = express();
 const PORT = 3000;
-const router = express.Router();
+
+const path = require('path');
 
 app.use(express.static('./build/'));
 
-router.get('/autorization', function(req, res) {
-    res.status(200).send('Hello, World!');
+app.use('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
 app.listen(PORT, function () {

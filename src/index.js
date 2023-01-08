@@ -10,7 +10,7 @@ import form2 from './templates/pages/registration';
 import page404 from './templates/pages/page404';
 import page500 from './templates/pages/page500';
 
-console.log(window.location.protocol);
+console.log(window.location.pathname);
 
 function signinPage() {
 	const comp = Handlebars.compile(tpl);
@@ -53,13 +53,13 @@ function fixingPage() {
 	return res;
 }
 
-if (window.location.href == window.location.protocol + "//" + window.location.host + '/autorization') {
+if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = signinPage();
-} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/registration') {
+} else if (window.location.pathname == '/registration') {
 	document.getElementById('root').innerHTML = regPage();
-} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/page404') {
+} else if (window.location.pathname == '/page404') {
 	document.getElementById('root').innerHTML = notfoundPage();
-} else if (window.location.href == window.location.protocol + "//" + window.location.host+'/page500') {
+} else if (window.location.pathname == '/page500') {
 	document.getElementById('root').innerHTML = fixingPage();
 } else {
 	document.getElementById('root').innerHTML = signinPage();
