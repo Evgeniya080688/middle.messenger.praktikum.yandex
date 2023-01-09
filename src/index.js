@@ -9,15 +9,15 @@ import image from './templates/components/image';
 import form1 from './templates/pages/autorization';
 import form2 from './templates/pages/registration';
 import info from './templates/pages/info';
-import changeinfo from './templates/pages/changeinfo';
+import changeinfo from './templates/pages/changeInfo';
+import changepassword from './templates/pages/changePassword';
 import page404 from './templates/pages/page404';
 import page500 from './templates/pages/page500';
+import chatlist from "./templates/pages/chatlist";
+import talking from "./templates/pages/talking";
+import listitem from "./templates/components/listItem";
 
 import ava from './img/andrey.png';
-
-console.log(ava);
-
-console.log(window.location.pathname);
 
 function signinPage() {
 	const comp = Handlebars.compile(tpl);
@@ -75,6 +75,64 @@ function changeInfo() {
 	return res;
 }
 
+function changePassword() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		changepassword: changepassword( {
+				image: image('Андрей', 'Аватар Андрея', ava),
+				oldPassword: input('oldPassword','Старый пароль','password', '89035475544'),
+				newPassword: input('newPassword','Новый пароль','password', '89035475544'),
+				newPasswordOneMore: input('newPassword','Новый пароль еще раз','password', '89035475544'),
+				submit: submit('save','Сохранить')},
+			ava)
+	});
+	return res;
+}
+
+function chatList() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		chatlist: chatlist( {
+				submit: submit('send','->'),
+				listitem1: listitem(
+					{image: image('Андрей', 'Аватар Андрея', ava)},
+					'Андрей', 'Жду', '23:30', '1'),
+				listitem2: listitem(
+					{image: image('Конь в пальто', 'Аватар Андрея', ava)},
+					'Андрей', 'Скачу...', '23:30', '1'),
+				listitem3: listitem(
+					{image: image('Андрей', 'Аватар Андрея', ava)},
+					'Василиса', 'На горе догорал ярко-пламенный закат. ' +
+					'Никода я такого не видала, но очень рада что но' +
+					' очень рада что но очень рада что но очень рада что', '23:30', '1')},
+
+			)
+	});
+	return res;
+}
+
+function toTalk() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		talking: talking( {
+			submit: submit('send','->'),
+			listitem1: listitem(
+				{image: image('Андрей', 'Аватар Андрея', ava)},
+				'Андрей', 'Жду', '23:30', '1'),
+			listitem2: listitem(
+				{image: image('Конь в пальто', 'Аватар Андрея', ava)},
+				'Андрей', 'Скачу...', '23:30', '1'),
+			listitem3: listitem(
+				{image: image('Андрей', 'Аватар Андрея', ava)},
+				'Василиса', 'На горе догорал ярко-пламенный закат. ' +
+				'Никода я такого не видала, но очень рада что но' +
+				' очень рада что но очень рада что но очень рада что', '23:30', '1')},
+
+		)
+	});
+	return res;
+}
+
 function notfoundPage() {
 	const comp = Handlebars.compile(tpl);
 	const res = comp({
@@ -103,7 +161,13 @@ if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = getInfo();
 } else if (window.location.pathname == '/changeinfo') {
 	document.getElementById('root').innerHTML = changeInfo();
-} else {
+} else if (window.location.pathname == '/changepassword') {
+	document.getElementById('root').innerHTML = changePassword();
+} else if (window.location.pathname == '/chatlist') {
+	document.getElementById('root').innerHTML = chatList();
+} else if (window.location.pathname == '/chat') {
+	document.getElementById('root').innerHTML = toTalk();
+}else {
 	document.getElementById('root').innerHTML = signinPage();
 }
 
