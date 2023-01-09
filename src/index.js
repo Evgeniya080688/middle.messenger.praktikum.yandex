@@ -5,10 +5,17 @@ import tpl from 'bundle-text:./index.hbs';
 import './style.less';
 import submit from './templates/components/submit';
 import input from './templates/components/input';
+import image from './templates/components/image';
 import form1 from './templates/pages/autorization';
 import form2 from './templates/pages/registration';
+import info from './templates/pages/info';
+import changeinfo from './templates/pages/changeinfo';
 import page404 from './templates/pages/page404';
 import page500 from './templates/pages/page500';
+
+import ava from './img/andrey.png';
+
+console.log(ava);
 
 console.log(window.location.pathname);
 
@@ -37,6 +44,37 @@ function regPage() {
 	return res;
 }
 
+function getInfo() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		info: info({image: image('Андрей', 'Аватар Андрея', ava)},
+			'Андрей',
+			'lan@yandex.ru',
+			'andrew40',
+			'Иванов',
+			'Andreika',
+			'89035475544')
+	});
+	return res;
+}
+
+function changeInfo() {
+	const comp = Handlebars.compile(tpl);
+	const res = comp({
+		changeinfo: changeinfo( {
+			image: image('Андрей', 'Аватар Андрея', ava),
+			email: input('email','Почта','text', 'lan@yandex.ru'),
+			login: input('login','Логин','text', 'andrew40'),
+			first_name: input('first_name','Имя','text', 'Андрей'),
+			second_name: input('second_name','Фамилия','text', 'Иванов'),
+			display_name: input('display_name','Имя в чате','text', 'Andreika'),
+			phone: input('phone','Телефон','text', '89035475544'),
+			submit: submit('save','Сохранить')},
+			ava)
+	});
+	return res;
+}
+
 function notfoundPage() {
 	const comp = Handlebars.compile(tpl);
 	const res = comp({
@@ -61,6 +99,10 @@ if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = notfoundPage();
 } else if (window.location.pathname == '/page500') {
 	document.getElementById('root').innerHTML = fixingPage();
+} else if (window.location.pathname == '/info') {
+	document.getElementById('root').innerHTML = getInfo();
+} else if (window.location.pathname == '/changeinfo') {
+	document.getElementById('root').innerHTML = changeInfo();
 } else {
 	document.getElementById('root').innerHTML = signinPage();
 }
