@@ -159,7 +159,7 @@ if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = fixingPage();
 } else if (window.location.pathname == '/info') {
 	document.getElementById('root').innerHTML = getInfo();
-} else if (window.location.pathname == '/changeInfo') {
+} else if (window.location.pathname == '/changeinfo') {
 	document.getElementById('root').innerHTML = changeInfo();
 } else if (window.location.pathname == '/changepassword') {
 	document.getElementById('root').innerHTML = changePassword();
