@@ -15,5 +15,4 @@ const tpl = `
 </div>
 `;
 
-
 export default tpl;

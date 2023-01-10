@@ -7,3 +7,4 @@ export default (props = {}, name, message, time, unreadCount ) => {
 		stl: {li: 'list-contacts__item ', itemava: 'item__ava', iteminfo: 'item__info', iteminfomess: 'item__infomess',
 		infotime: 'info-time', infocounter: 'info-counter'} });
 }
+

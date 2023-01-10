@@ -6,3 +6,4 @@ import style from  './style.less';
 export default (props = {}) => {
 	return Handlebars.compile(tpl)({...props, stl: {page404: 'page404', bigtitle: 'bigtitle'}});
 }
+

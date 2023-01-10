@@ -8,3 +8,4 @@ export default (props = {}) => {
 		{...props, stl: {chat: 'chat', list: 'chat-list', field: 'chat-field', contacts: 'list-contacts',
 			search: 'search'}});
 }
+

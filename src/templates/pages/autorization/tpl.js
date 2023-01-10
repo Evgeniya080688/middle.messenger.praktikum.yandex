@@ -9,6 +9,4 @@ const tpl = `
     </form
 </div>
 `;
-
-
 export default tpl;

@@ -6,3 +6,4 @@ import style from  './style.less';
 export default (props = {}) => {
 	return Handlebars.compile(tpl)({...props, stl: {form: 'signin-form', link: 'form-link'}});
 }
+

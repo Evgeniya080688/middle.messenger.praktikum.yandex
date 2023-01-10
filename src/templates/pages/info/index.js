@@ -8,3 +8,4 @@ export default (props = {}, name, email, login, surname, nikname, phone, ) => {
 	({...props, name, email, login, surname, nikname, phone,
 		stl: {info: 'info-block', avatar: 'avatar', tdright: 'tdright'}});
 }
+

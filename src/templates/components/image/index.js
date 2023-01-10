@@ -5,3 +5,4 @@ import stl from  './style.less';
 export default (title, alt, src) => {
 	return Handlebars.compile(tpl)({ title, alt, src, stl: {avatar: 'favatar'} });
 }
+

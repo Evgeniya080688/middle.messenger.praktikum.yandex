@@ -3,3 +3,4 @@ const tpl = `<p><b>{{label}}:</b>
              </p>`;
 
 export default tpl;
+

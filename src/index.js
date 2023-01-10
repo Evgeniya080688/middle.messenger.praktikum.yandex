@@ -49,7 +49,7 @@ function getInfo() {
 	const res = comp({
 		info: info({image: image('Андрей', 'Аватар Андрея', ava)},
 			'Андрей',
-			'lan@yandex.ru',
+			'lan1@yandex.ru',
 			'andrew40',
 			'Иванов',
 			'Andreika',
@@ -63,7 +63,7 @@ function changeInfo() {
 	const res = comp({
 		changeinfo: changeinfo( {
 			image: image('Андрей', 'Аватар Андрея', ava),
-			email: input('email','Почта','text', 'lan@yandex.ru'),
+			email: input('email','Почта','text', 'lan1@yandex.ru'),
 			login: input('login','Логин','text', 'andrew40'),
 			first_name: input('first_name','Имя','text', 'Андрей'),
 			second_name: input('second_name','Фамилия','text', 'Иванов'),
@@ -174,6 +174,7 @@ if (window.location.pathname == '/autorization') {
 document.getElementById('root').querySelector('a').addEventListener('click', (e) => {
 
 })
+
 
 
 

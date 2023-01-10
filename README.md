@@ -16,7 +16,9 @@ https://www.figma.com/file/I7puc6HaDDG8MNDMNRrsNn/Untitled?node-id=15%3A104&t=k0
 
 3. npm run-script build запуск сборки
 
-4. npm run start запуск express сервера на http://localhost:3000/
+4. npm run-script dev запуск на localhost:8080 в режиме разработки
+
+5. npm run start запуск express сервера на http://localhost:3000/
 
 ##Контакты
 Автор: Паладина Евгения

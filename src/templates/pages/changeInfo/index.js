@@ -6,3 +6,4 @@ export default (props = {}, src) => {
 	return Handlebars.compile(tpl)
 	({...props, src, stl: {info: 'info-block', avatar: 'avatar', changeinput: 'changeinput'}});
 }
+
