@@ -10,6 +10,9 @@
     "watch": "parcel watch",
     "start": "node ./server.js"
   },
+  "engines": {
+    "node": ">= 12"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
