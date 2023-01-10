@@ -167,7 +167,7 @@ if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = chatList();
 } else if (window.location.pathname == '/chat') {
 	document.getElementById('root').innerHTML = toTalk();
-}else {
+} else {
 	document.getElementById('root').innerHTML = signinPage();
 }
 

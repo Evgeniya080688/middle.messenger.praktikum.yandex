@@ -7,7 +7,7 @@
     "test": "parcel src/index.html --no-source-maps --target default --dist-dir ./build",
     "build": "parcel build src/index.html --no-source-maps --target default --dist-dir ./build",
     "watch": "parcel watch",
-    "run start": "node ./server.js"
+    "start": "node ./server.js"
   },
   "author": "",
   "license": "ISC",
