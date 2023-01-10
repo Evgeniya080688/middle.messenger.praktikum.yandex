@@ -12,9 +12,9 @@ const tpl = `
             {{{listitem3}}}
         </ul>
     </aside>
-    <div class="{{stl.field}}">
+    <section class="{{stl.field}}">
         <p>Чтобы начать общение, выберите чат!</p>
-    </div>
+    </section>
 </div>
 `;
 

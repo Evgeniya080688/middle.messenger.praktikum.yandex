@@ -1,3 +1,5 @@
+@import "../../../less/variables.less";
+
 .info-block{
     width: 30em;
     padding: 2em;
@@ -5,7 +7,7 @@
     margin-right: auto;
     margin-top: 2em;
     margin-bottom: 6em;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px @shadow;
     font-weight: 400;
 
     h1 {
@@ -19,7 +21,7 @@
         margin-left: auto;
         overflow: hidden;
         border-radius: 5em;
-        background-color: rgba(170,170,170,1);
+        background-color: @middlegray;
 
         img {
             width: 100%;
@@ -31,10 +33,10 @@
 
         tr {
             height: 2em;
-            border: 2px solid rgba(48, 41, 86, 1);
+            border: 2px solid @deeppurple;
 
             td {
-                border-bottom: 2px solid rgba(48, 41, 86, 1);
+                border-bottom: 2px solid @deeppurple;
             }
             .tdright {
                 text-align: right;

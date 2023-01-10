@@ -1,6 +1,6 @@
 const tpl = `
 <div class="{{stl.chat}}">
-    <section class="{{stl.list}}">
+    <aside class="{{stl.list}}">
         <p><a href="/info">В профиль ></a></p>
         <form action="/search/search_do/" class="{{stl.search}}" method="get" autocomplete="on" required="">
             <input type="text" class="" autocomplete="off" placeholder="поиск..." name="search_string" value="">
@@ -11,7 +11,7 @@ const tpl = `
             {{{listitem2}}}
             {{{listitem3}}}
         </ul>
-    </section>
+    </aside>
     <section class="{{stl.field}}">
         <div>
             {{{image}}}

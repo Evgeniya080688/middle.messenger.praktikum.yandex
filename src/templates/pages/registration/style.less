@@ -1,3 +1,5 @@
+@import "../../../less/variables.less";
+
 .reg-form {
     width: 20em;
     padding: 2em;
@@ -5,18 +7,18 @@
     margin-right: auto;
     margin-top: 2em;
     margin-bottom: 6em;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px @shadow;
     font-weight: 400;
 
     h1 {
         text-align: center;
-        color: rgba(48, 41, 86, 1);
+        color: @deeppurple;
     }
 
     .form-input {
         width: 100%;
         border: none;
-        border-bottom: 2px solid rgba(48, 41, 86, 1);
+        border-bottom: 2px solid @deeppurple;
     }
 
     .form-link {

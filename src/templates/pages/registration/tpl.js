@@ -1,5 +1,5 @@
 const tpl = `
-<div class="{{stl.form}}">
+<section class="{{stl.form}}">
         <form action="">
         <h1>Регистрация</h1>
         {{{mail}}}
@@ -12,7 +12,8 @@ const tpl = `
         {{{submit}}}
         <p class="{{stl.link}}"><a  href="/autorization">Войти</a></p>
     </form>
-</div>
+</section>
 `;
 
 export default tpl;
+
