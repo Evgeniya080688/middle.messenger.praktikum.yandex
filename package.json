@@ -22,12 +22,10 @@
   "targets": {
     "default": {
       "sourceMap": false,
-      "engines": {
-        "browsers": ">=50%"
-      }
+
     }
   },
-  "engines": {
+  "engine": {
     "node": ">=14.0"
   },
   "dependencies": {
