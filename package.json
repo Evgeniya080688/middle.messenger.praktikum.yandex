@@ -21,7 +21,7 @@
   },
   "targets": {
     "default": {
-      "sourceMap": false,
+      "sourceMap": false
 
     }
   },
