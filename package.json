@@ -10,9 +10,6 @@
     "watch": "parcel watch",
     "start": "node ./server.js"
   },
-  "engine": {
-    "node": ">=12.0.0"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -23,8 +20,14 @@
   },
   "targets": {
     "default": {
-      "sourceMap": false
+      "sourceMap": false,
+      "engines": {
+        "browsers": ">=50%"
+      }
     }
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "dependencies": {
     "handlebars": "4.7.7",
