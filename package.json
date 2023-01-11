@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "test": "parcel src/index.html --target default",
-    "build": "parcel build src/index.html --no-source-maps --target default",
+    "build": "parcel build src/index.html  --dist-dir ./build --no-cache",
     "dev": "parcel src/index.html  --target default  --port 8080",
     "watch": "parcel watch",
     "start": "node ./server.js"
