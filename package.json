@@ -18,9 +18,6 @@
     "express": "^4.18.2",
     "parcel": "^2.4.1"
   },
-  "engines": {
-    "node": ">=14.0"
-  },
   "targets": {
     "default": {
       "sourceMap": false,
@@ -28,6 +25,9 @@
         "browsers": ">=50%"
       }
     }
+  },
+  "engines": {
+    "node": ">=12.0"
   },
   "dependencies": {
     "handlebars": "4.7.7",
