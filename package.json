@@ -21,11 +21,13 @@
   },
   "targets": {
     "default": {
-      "sourceMap": false
-
+      "sourceMap": false,
+      "engines": {
+        "browsers": ">=50%"
+      }
     }
   },
-  "engine": {
+  "engines": {
     "node": ">=14.0"
   },
   "dependencies": {
