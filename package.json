@@ -19,14 +19,7 @@
     "parcel": "^2.8.2",
     "parcel-transformer-hbs": "^1.0.4"
   },
-  "targets": {
-    "default": {
-      "sourceMap": false,
-      "engines": {
-        "browsers": ">=50%"
-      }
-    }
-  },
+
   "engines": {
     "node": ">=14.0"
   },
