@@ -1,0 +1,3 @@
+{
+  "extends": ["@parcel/transformer-inline-string", "@parcel/transformer-less"]
+}
