@@ -1,0 +1,41 @@
+@import "./less/variables.less";
+@import "./less/fonts.less";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 320px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.main-header {
+  height: 2em ;
+  padding: 0.5em;
+  background-color: @deeppurple;
+  color: white;
+}
+
+  .main-header__details {
+    font-weight: 700;
+    font-size: 1.4em;
+    margin: 0;
+    line-height: 1.4em;
+  }
+
+.main-menu {
+  ul {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 100%;
+    li {
+      list-style: none;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
+}
+
