@@ -23,7 +23,10 @@
   },
   "targets": {
     "default": {
-      "sourceMap": false
+      "sourceMap": false,
+      "engines": {
+        "browsers": ">=50%"
+      }
     }
   },
   "dependencies": {
