@@ -1,6 +1,7 @@
 'use strict';
 
-import Handlebars from "handlebars";
+//import Handlebars from "handlebars";
+const Handlebars = require('handlebars');
 import tpl from 'bundle-text:./index.hbs';
 import './style.less';
 import submit from './templates/components/submit';
