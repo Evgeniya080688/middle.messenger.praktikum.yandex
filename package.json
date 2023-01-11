@@ -19,7 +19,8 @@
     "@parcel/transformer-inline-string": "2.4.1",
     "@parcel/transformer-less": "2.8.2",
     "express": "4.18.2",
-    "parcel": "2.4.1"
+    "parcel": "2.4.1",
+    "parcel-transformer-hbs": "^1.0.4"
   },
   "targets": {
     "default": {
@@ -34,4 +35,3 @@
     "less": "4.1.3"
   }
 }
-
