@@ -27,7 +27,9 @@
       }
     }
   },
-
+  "engines": {
+    "node": ">=14.0"
+  },
   "dependencies": {
     "handlebars": "4.7.7",
     "less": "4.1.3"
