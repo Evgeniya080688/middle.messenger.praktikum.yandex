@@ -1,3 +1,9 @@
 {
-  "extends": ["@parcel/transformer-inline-string", "@parcel/transformer-less"]
+ "extends": "@parcel/config-default",
+  "transformers": {
+    "*.hbs": ["parcel-transformer-hbs"],
+    "*.less":["parcel-transformer-less"],
+    "bundle-text:*": ["...", "@parcel/transformer-inline-string"],
+    "data-url:*": ["...", "@parcel/transformer-inline-string"]
+  }
 }
