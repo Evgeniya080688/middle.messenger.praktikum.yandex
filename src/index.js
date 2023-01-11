@@ -171,9 +171,7 @@ if (window.location.pathname == '/autorization') {
 	document.getElementById('root').innerHTML = signinPage();
 }
 
-document.getElementById('root').querySelector('a').addEventListener('click', (e) => {
 
-})
 
 
 
