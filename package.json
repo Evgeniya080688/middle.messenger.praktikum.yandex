@@ -23,7 +23,7 @@
     "default": {
       "sourceMap": false,
       "engines": {
-        "node": ">=14.0"
+        "browsers": ">=50%"
       }
     }
   },
