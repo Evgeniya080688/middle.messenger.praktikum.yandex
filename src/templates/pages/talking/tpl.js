@@ -62,10 +62,12 @@ const tpl = `
              <div class="{{stl.to}}"><img src="https://avatars.mds.yandex.net/i?id=aa6055cad2d543e1f55d4169aad03e23e9a799ce-7452211-images-thumbs&n=13" alt="simple" title="simole"></div>
             
         </div>
-        <div class="{{stl.inputblock}}">
+        <form action="" class="{{stl.inputblock}}">
+            <div class="{{stl.file}}" onclick="document.getElementById('attachfile').click();">&#128206;</div>
+            <input type="file" name="attach" id="attachfile" data-buttonText="Добавить файл">
             <input class="{{stl.input}} name="message" type="text" size="40" placeholder="Введите сообщение" value="">
             {{{submit2}}}
-        </div>
+        </form>
     </section>
 </div>
 `;
