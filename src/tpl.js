@@ -1,3 +1,4 @@
+const tpl = `
 {{{form1}}}
 {{{form2}}}
 {{{page404}}}
@@ -7,7 +8,8 @@
 {{{changepassword}}}
 {{{chatlist}}}
 {{{talking}}}
-
+`;
+export default tpl;
 
 
 

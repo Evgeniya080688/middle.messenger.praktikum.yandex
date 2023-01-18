@@ -6,3 +6,4 @@ build
 .parcel-cache
 .github
 .idea
+package-lock.json

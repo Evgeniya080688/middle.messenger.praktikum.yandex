@@ -6,7 +6,7 @@ const tpl = `
         {{{password}}}
         <p>{{{submit}}}</p>  
         <p class="{{stl.link}}"><a  href="/registration">Нет аккаунта?</a></p>
-    </form
+    </form>
 </div>
 `;
 export default tpl;
