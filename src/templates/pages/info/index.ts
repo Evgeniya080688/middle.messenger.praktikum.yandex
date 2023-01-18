@@ -1,7 +1,6 @@
 import Handlebars from 'handlebars';
-import tpl from './tpl.js';
+import tpl from './tpl';
 import './style.less';
-import style from  './style.less';
 
 export default (props = {}, name, email, login, surname, nikname, phone, ) => {
 	return Handlebars.compile(tpl)

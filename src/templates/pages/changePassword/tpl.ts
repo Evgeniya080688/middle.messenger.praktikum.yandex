@@ -1,4 +1,4 @@
-const tpl = `
+const tpl: string = `
 <div class="{{stl.info}}">  
     <div class="{{stl.avatar}}" >{{{image}}}</div> 
     <form action="">

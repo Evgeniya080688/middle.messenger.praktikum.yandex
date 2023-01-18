@@ -1,4 +1,4 @@
-const tpl = `
+const tpl: string = `
 <div class="{{stl.chat}}">
     <aside class="{{stl.list}}">
         <p><a href="/info">В профиль</a></p>

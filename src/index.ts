@@ -1,7 +1,6 @@
 'use strict';
-
 import Handlebars from "handlebars";
-import tpl from './tpl.js';
+import tpl from './tpl';
 import './style.less';
 import submit from './templates/components/submit';
 import input from './templates/components/input';
@@ -17,7 +16,7 @@ import chatlist from "./templates/pages/chatlist";
 import talking from "./templates/pages/talking";
 import listitem from "./templates/components/listItem";
 
-import ava from './img/andrey.png';
+import ava  from './img/andrey.png';
 
 function signinPage() {
     const comp = Handlebars.compile(tpl);
@@ -95,13 +94,13 @@ function chatList() {
         chatlist: chatlist( {
             submit: submit('send','>'),
             listitem1: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Андрей', 'Жду', '23:30', '1'),
             listitem2: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Андрей', 'Скачу...', '23:30', '1'),
             listitem3: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Василиса', 'На горе догорал ярко-пламенный закат. ' +
                 'Никода я такого не видала, но очень рада что но' +
                 ' очень рада что но очень рада что но очень рада что', '23:30', '1')},
@@ -120,28 +119,28 @@ function toTalk() {
             submit2: submit('send','Отправить'),
             image: image('Андрейка - фото профиля','Здесь просто фото профиля', ava),
             listitem1: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Андрей', 'Жду', '23:30', '1'),
             listitem2: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Андрей', 'Скачу...', '23:30', '1'),
             listitem3: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Василиса', 'На горе догорал ярко-пламенный закат. ' +
                 'Никода я такого не видала, но очень рада что но' +
                 ' очень рада что но очень рада что но очень рада что', '23:30', '1'),
             listitem4: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Василиса', 'На горе догорал ярко-пламенный закат. ' +
                 'Никода я такого не видала, но очень рада что но' +
                 ' очень рада что но очень рада что но очень рада что', '23:30', '1'),
             listitem5: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Василиса', 'На горе догорал ярко-пламенный закат. ' +
                 'Никода я такого не видала, но очень рада что но' +
                 ' очень рада что но очень рада что но очень рада что', '23:30', '1'),
             listitem6: listitem(
-                {},'Фото Андрея', 'Фото пользователя', ava,
+                'Фото Андрея', 'Фото пользователя', ava,
                 'Василиса', 'На горе догорал ярко-пламенный закат. ' +
                 'Никода я такого не видала, но очень рада что но' +
                 ' очень рада что но очень рада что но очень рада что', '23:30', '1')},
@@ -188,7 +187,7 @@ if (window.location.pathname == '/autorization') {
     document.getElementById('root').innerHTML = signinPage();
 }
 
-document.getElementById('root').querySelector('a').addEventListener('click', (e) => {
-
-})
+// document.getElementById('root').querySelector('a').addEventListener('click', (e) => {
+//
+// })
 

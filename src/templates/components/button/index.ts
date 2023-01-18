@@ -1,6 +1,5 @@
 import Handlebars from 'handlebars';
-import tpl from './tpl.js';
-import stl from  './style.less';
+import tpl from './tpl';
 
 export default (id, value) => {
 	return Handlebars.compile(tpl)({ id, value, stl: {button: 'button'} });

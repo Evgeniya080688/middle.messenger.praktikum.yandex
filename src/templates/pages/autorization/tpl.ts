@@ -1,4 +1,4 @@
-const tpl = `
+const tpl: string = `
 <div class="{{stl.form}}">
     <form action="">
         <h1>Вход</h1>

@@ -1,4 +1,4 @@
-const tpl = `
+const tpl: string = `
 <li class="{{stl.li}}">
     <a href="/chat">
         <div class="{{stl.itemava}}">

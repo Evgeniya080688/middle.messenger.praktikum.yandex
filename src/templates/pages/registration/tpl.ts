@@ -1,4 +1,4 @@
-const tpl = `
+const tpl: string = `
 <section class="{{stl.form}}">
         <form action="">
         <h1>Регистрация</h1>
