@@ -16,13 +16,66 @@ import chatlist from "./templates/pages/chatlist";
 import talking from "./templates/pages/talking";
 import listitem from "./templates/components/listItem";
 
+import Input from './templates/components/input/input';
+import Button from './templates/components/button/button';
+import Submit from './templates/components/submit/submit';
+import SignIn from './templates/pages/autorization/autorization';
+
 import ava  from './img/andrey.png';
+import SignIn from "./templates/pages/autorization/autorization";
+
+function render(query, block) {
+    const root = document.querySelector(query);
+    root.appendChild(block.getContent());
+    return root;
+}
+
+const inputik = new Input ({
+    name: 'inputTest',
+    label: 'Инпутик',
+    type: 'text',
+    value: 'enter your text',
+    placeholder: 'enter your text',
+    required: true,
+    stl: {input: 'form-input', label: 'form-label'}
+});
+
+const signPage = new SignIn({
+    login: new Input ({
+        name: 'inputTest',
+        label: 'Инпутик',
+        type: 'text',
+        value: 'enter your text',
+        placeholder: 'enter your text',
+        required: true,
+        stl: {input: 'form-input', label: 'form-label'}
+    }),
+    password: new Input ({
+        name: 'inputTest2',
+        label: 'Инпутик2',
+        type: 'text',
+        value: 'enter your text',
+        placeholder: 'enter your text',
+        required: true,
+        stl: {input: 'form-input', label: 'form-label'}
+    }),
+    submit: new Submit ({
+        id: 'signin',
+        value: 'Сабмит',
+        stl: {button: 'submit-button'}
+    }),
+    stl: {form: 'reg-form', link: 'form-link'}
+});
+
+console.log(inputik);
 
 function signinPage() {
     const comp = Handlebars.compile(tpl);
     const res = comp({
-        form1: form1({login: input('login','Логин','text'),
-            password: input('password','Пароль','password'),
+        form1: form1(
+            {login: input('login','Логин','text', '', 'Введите логин',
+                    true, '^[а-яА-ЯёЁa-zA-Z0-9]+$'),
+            password: input('password','Пароль','password', '', 'Введите пароль', true, ''),
             submit: submit('signin','Войти')})
     });
     return res;
@@ -31,13 +84,17 @@ function signinPage() {
 function regPage() {
     const comp = Handlebars.compile(tpl);
     const res = comp({
-        form2: form2({mail: input('email','Почта','text'),
-            login: input('login','Логин','text'),
-            name: input('first_name','Имя','text'),
-            surname: input('second_name','Фамилия','text'),
-            phone: input('phone','Телефон','text'),
-            password: input('password','Пароль','password'),
-            passwordonemore: input('password','Пароль еще раз','password'),
+        form2: form2(
+            {mail: input('email','Почта','text', '', 'Введите e-mail', true),
+            login: input('login','Логин','text', '','Придумайте логин',
+                true),
+            name: input('first_name','Имя','text', '','Введите имя',
+                true),
+            surname: input('second_name','Фамилия','text', '','Введите фамилию',
+                true),
+            phone: input('phone','Телефон','text', '','Введите телефон', true),
+            password: input('password','Пароль','password', '','Введите пароль', true),
+            passwordonemore: input('password','Пароль еще раз','password', '','Введите пароль еще раз', true),
             submit: submit('signin','Зарегистрироваться')})
     });
     return res;
@@ -62,12 +119,12 @@ function changeInfo() {
     const res = comp({
         changeinfo: changeinfo( {
                 image: image('Андрей', 'Аватар Андрея', ava),
-                email: input('email','Почта','text', 'lan1@yandex.ru'),
-                login: input('login','Логин','text', 'andrew40'),
-                first_name: input('first_name','Имя','text', 'Андрей'),
-                second_name: input('second_name','Фамилия','text', 'Иванов'),
-                display_name: input('display_name','Имя в чате','text', 'Andreika'),
-                phone: input('phone','Телефон','text', '89035475544'),
+                email: input('email','Почта','text', 'lan1@yandex.ru','', false),
+                login: input('login','Логин','text', 'andrew40','', false),
+                first_name: input('first_name','Имя','text', 'Андрей','', false),
+                second_name: input('second_name','Фамилия','text', 'Иванов','', false),
+                display_name: input('display_name','Имя в чате','text', 'Andreika','', false),
+                phone: input('phone','Телефон','text', '89035475544','', false),
                 submit: submit('save','Сохранить')},
             ava)
     });
@@ -79,9 +136,9 @@ function changePassword() {
     const res = comp({
         changepassword: changepassword( {
                 image: image('Андрей', 'Аватар Андрея', ava),
-                oldPassword: input('oldPassword','Старый пароль','password', '89035475544'),
-                newPassword: input('newPassword','Новый пароль','password', '89035475544'),
-                newPasswordOneMore: input('newPassword','Новый пароль еще раз','password', '89035475544'),
+                oldPassword: input('oldPassword','Старый пароль','password', '89035475544','', false),
+                newPassword: input('newPassword','Новый пароль','password', '89035475544','', false),
+                newPasswordOneMore: input('newPassword','Новый пароль еще раз','password', '89035475544','', false),
                 submit: submit('save','Сохранить')},
             ava)
     });
@@ -112,9 +169,9 @@ function chatList() {
 
 function toTalk() {
     const comp = Handlebars.compile(tpl);
-    const res = comp({
+    const res: string = comp({
         talking: talking( {
-            input: input('message','пп','text','Введите'),
+            input: input('message','пп','text','Введите', '', false, ''),
             submit1: submit('send','>'),
             submit2: submit('send','Отправить'),
             image: image('Андрейка - фото профиля','Здесь просто фото профиля', ava),
@@ -166,7 +223,8 @@ function fixingPage() {
 }
 
 if (window.location.pathname == '/autorization') {
-    document.getElementById('root').innerHTML = signinPage();
+    //document.getElementById('root').innerHTML = signinPage();
+    render('#root', signPage);
 } else if (window.location.pathname == '/registration') {
     document.getElementById('root').innerHTML = regPage();
 } else if (window.location.pathname == '/page404') {

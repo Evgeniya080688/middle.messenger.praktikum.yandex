@@ -1,7 +1,11 @@
-class EventBus {
-    private readonly listeners: Record<string, Array<() => void>> = {};
+export class EventBus {
+    public listeners: any;
 
-    on(event, callback) {
+    constructor() {
+        this.listeners = {};
+    }
+
+    on(event: string, callback: object): void {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
@@ -9,31 +13,30 @@ class EventBus {
         this.listeners[event].push(callback);
     }
 
-    off(event, callback) {
+    off(event: string, callback: object): void {
         if (!this.listeners[event]) {
             throw new Error(`Нет события: ${event}`);
         }
 
         this.listeners[event] = this.listeners[event].filter(
-            listener => listener !== callback
+            (listener: object) => listener !== callback,
         );
     }
 
-    emit(event, ...args) {
+    emit(event: string, ...args: object[]): void {
         if (!this.listeners[event]) {
-            throw new Error(`Нет события: ${event}`);
+            throw new Event(`Нет события: ${event}`);
         }
 
-        this.listeners[event].forEach(function(listener) {
+        this.listeners[event].forEach((listener: any) => {
             listener(...args);
         });
     }
 }
-
-const eventBus = new EventBus();
-
-eventBus.on('event',data => {
-    console.log(data);
-});
-
-eventBus.emit('event', {property: 'value'});
+// const eventBus = new EventBus();
+//
+// eventBus.on('event',data => {
+//     console.log(data);
+// });
+//
+// eventBus.emit('event', {property: 'value'});

@@ -1,6 +1,6 @@
 const tpl: string = `
 <section class="{{stl.form}}">
-        <form action="">
+     <form action="">
         <h1>Регистрация</h1>
         {{{mail}}}
         {{{login}}}

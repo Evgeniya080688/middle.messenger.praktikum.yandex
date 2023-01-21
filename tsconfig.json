@@ -103,10 +103,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
+    "include": [
+      "src/ts/**/*.ts",
+    ],
     "lib": [
       "ESNext",
       "DOM"
     ]
-  }
+   }
 }
