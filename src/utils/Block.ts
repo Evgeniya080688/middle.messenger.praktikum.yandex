@@ -7,7 +7,7 @@ export interface Props {
     events?: { [eventName: string]: EventListener };
 }
 
-export default class Block {
+export class Block {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
@@ -18,9 +18,11 @@ export default class Block {
     public _props: Props;
     public _children;
     protected _id;
+    // @ts-ignore
     protected _element: HTMLElement | Element;
     protected _meta;
     protected _eventBus;
+    protected _setUpdate = false;
 
 
     /** JSDoc
@@ -29,12 +31,11 @@ export default class Block {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", propsAndChilds = {}) {
+    public constructor(tagName = "div", propsAndChilds = {}) {
         const { children, props } = this.getChildren(propsAndChilds);
 
         this._eventBus = new EventBus()
         this._id = Date.now() * Math.floor(Math.random() * 42) + 1;
-        //this._children = children;
         this._children = this.makePropsProxy(children);
         this._props = this.makePropsProxy({ ...props, __id: this._id });
         this._meta = { tagName, props };
@@ -50,10 +51,10 @@ export default class Block {
         this._eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     }
 
-    // _createResources() {
-    //     const { tagName } = this._meta;
-    //     this._element = this._createDocumentElement(tagName);
-    // }
+    protected _createResources() {
+        const { tagName } = this._meta;
+        this._element = this.createDocumentElement(tagName);
+    }
 
     init() {
         this._element = this.createDocumentElement(this._meta?.tagName);
@@ -65,22 +66,29 @@ export default class Block {
         return document.createElement(tagName);
     }
 
-    createDocumentElement(tagName: string) {
+    createDocumentElement(tagName: string, style?: string) {
         const element = document.createElement(tagName);
+        if (typeof style === "string") {
+            element.classList.add(style);
+        }
         if (this._props.settings?.withInternalID) element.setAttribute('data-id', this._id);
         return element;
     }
 
-    _render() {
+    protected _render() {
         const block: Node = this.render();
         this.removeEvents();
         this._element.innerHTML = '';
         this._element.appendChild(block);
         this.addEvents();
+        this.addAttribute();
     }
 
 // Может переопределять пользователь, необязательно трогать
-    render() {}
+    render() {
+        const template = '';
+        return this.compile(template, this._props);
+    }
 
     addEvents() {
 
@@ -96,6 +104,13 @@ export default class Block {
 
         Object.keys(events).forEach((eventName: string) => {
             this._element.removeEventListener(eventName, events[eventName]);
+        });
+    }
+
+    addAttribute() {
+        const { attr = {} } = this._props;
+        (<any>Object).entries(attr).forEach(([key, value]: any) => {
+            this._element.setAttribute(key, value);
         });
     }
 
@@ -121,7 +136,7 @@ export default class Block {
 
         const propsAndStubs: Props = { ...props };
 
-        Object.entries(this._children).forEach(([key, child]:any) => {
+        (<any>Object).entries(this._children).forEach(([key, child]:any) => {
             propsAndStubs[key] = `<div data-id="${child._id}"></div>`;
         });
 
@@ -129,11 +144,12 @@ export default class Block {
         fragment.innerHTML = Handlebars.compile(template)(propsAndStubs);
 
         (<any>Object).values(this._children).forEach((child: any) => {
+            // @ts-ignore
             const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
             if(stub)
                 stub.replaceWith(child.getContent());
         });
-
+        // @ts-ignore
         return fragment.content;
     }
 
@@ -152,19 +168,29 @@ export default class Block {
     }
 
     _componentDidUpdate(oldProps, newProps) {
-        const isReRender = this.componentDidUpdate(oldProps, newProps);
-        if(isReRender)
-            this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        const response = this.componentDidUpdate(oldProps, newProps);
+        if (!response) {
+            return;
+        }
+        this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        // const isReRender = this.componentDidUpdate(oldProps, newProps);
+        // if(isReRender)
+        //     this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
 // Может переопределять пользователь, необязательно трогать
     componentDidUpdate(oldProps, newProps) {
-        return true;
+        if (oldProps !== newProps) {
+            return true;
+        }
+        return false;
     }
 
     setProps(newProps) {
         if (!newProps)
             return;
+
+        this._setUpdate = false;
 
         const { children, props } = this.getChildren(newProps);
 
@@ -173,14 +199,16 @@ export default class Block {
 
         if(Object.values(props).length)
             Object.assign(this._props, props);
+
+        if (this._setUpdate) {
+            this._eventBus.emit(Block.EVENTS.FLOW_CDU, { ...this._props }, props);
+            this._setUpdate = false;
+        }
     }
 
-    get element() {
-        return this._element;
-    }
 
     getContent() {
-        return this.element;
+        return this._element;
     }
 
     makePropsProxy(props) {
