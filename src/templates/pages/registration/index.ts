@@ -1,8 +1,3 @@
-import Handlebars from 'handlebars';
-import tpl from './tpl';
-import './style.less';
+import Registration from './registration';
 
-export default (props = {}) => {
-	return Handlebars.compile(tpl)({...props, stl: {form: 'reg-form', input: 'form-input', link: 'form-link'}});
-}
-
+export const regPage = new Registration();

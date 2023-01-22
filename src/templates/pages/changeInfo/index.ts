@@ -1,9 +1,3 @@
-import Handlebars from 'handlebars';
-import tpl from './tpl';
-import './style.less';
+import ChangeInfo from './changeinfo';
 
-export default (props = {}, src) => {
-	return Handlebars.compile(tpl)
-	({...props, src, stl: {info: 'info-block', avatar: 'avatar', changeinput: 'changeinput'}});
-}
-
+export const changeInfoPage = new ChangeInfo();

@@ -1,7 +1,4 @@
-import Handlebars from 'handlebars';
-import tpl from './tpl';
+import SignIn from './autorization';
 
-export default (props = {}) => {
-	return Handlebars.compile(tpl)({...props, stl: {form: 'reg-form', link: 'form-link'}});
-}
+export const signPage = new SignIn();
 

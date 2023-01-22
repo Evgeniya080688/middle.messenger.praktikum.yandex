@@ -1,8 +1,3 @@
-import Handlebars from 'handlebars';
-import tpl from './tpl';
+import Page500 from './page500';
 
-
-export default (props = {}) => {
-	return Handlebars.compile(tpl)({...props, stl: {page404: 'page404', bigtitle: 'bigtitle'}});
-}
-
+export const fixPage = new Page500();
