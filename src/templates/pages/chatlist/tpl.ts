@@ -1,5 +1,5 @@
 const tpl: string = `
-<div class="{{stl.chat}}">
+
     <aside class="{{stl.list}}">
         <p><a href="/info">В профиль</a></p>
         <form action="/search/search_do/" class="{{stl.search}}" method="get" autocomplete="on" required="">
@@ -15,7 +15,7 @@ const tpl: string = `
     <section class="{{stl.field}}">
         <p>Чтобы начать общение, выберите чат!</p>
     </section>
-</div>
+
 `;
 
 export default tpl;

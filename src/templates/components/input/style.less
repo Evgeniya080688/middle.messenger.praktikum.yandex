@@ -20,3 +20,14 @@ input:valid {
 input:invalid {
     border-color: @red;
 }
+
+.error {
+    display: none;
+    color: @fire;
+    font-size: 0.8em;
+}
+
+input:not(:focus):invalid + .error {
+    display: block;
+}
+

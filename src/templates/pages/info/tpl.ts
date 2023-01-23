@@ -1,5 +1,5 @@
 const tpl: string = `
-<div class="{{stl.info}}">  
+
     <div class="{{stl.avatar}}" >{{{image}}}</div>  
     <h1>{{name}}</h1>
     <table>
@@ -37,7 +37,7 @@ const tpl: string = `
             <td colspan="2"><a href="/singout">Выйти</a></td>        
         </tr>
     </table>
-</div>
+
 `;
 
 export default tpl;

@@ -1,5 +1,4 @@
 const tpl: string = `
-<div class="{{stl.info}}">  
     <form action="">
         <div class="{{stl.changeinput}}">        
             <div class="{{stl.avatar}}" onclick="document.getElementById('uploadava').click();">{{{image}}}</div>
@@ -13,7 +12,6 @@ const tpl: string = `
         {{{phone}}}
         <p>{{{submit}}}</p>
     </form>
-</div>
 `;
 
 export default tpl;

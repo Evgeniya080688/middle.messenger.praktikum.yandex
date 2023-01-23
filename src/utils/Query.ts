@@ -1,8 +1,15 @@
-const METHODS = {
-    GET: 'GET',
-    PUT: 'PUT',
-    POST: 'POST',
-    DELETE: 'DELETE'
+enum METHODS  {
+    GET = 'GET',
+    PUT ='PUT',
+    POST = 'POST',
+    DELETE = 'DELETE'
+};
+
+type Options = {
+    method: METHODS;
+    data?: object;
+    headers?: Headers;
+    timeout?: number;
 };
 
 /**
@@ -10,34 +17,34 @@ const METHODS = {
  * На входе: объект. Пример: {a: 1, b: 2, c: {d: 123}, k: [1, 2, 3]}
  * На выходе: строка. Пример: ?a=1&b=2&c=[object Object]&k=1,2,3
  */
-function queryStringify(data) {
+function queryStringify(data: object) {
     // Можно делать трансформацию GET-параметров в отдельной функции
     if (typeof data !== 'object') {
         throw new Error('Data must be object');
     }
     const keys = Object.keys(data);
-    return keys.reduce((result, key, index) => {
+    return keys.reduce((result: string, key: string, index: number) => {
         return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
     }, '?');
 }
 
 class HTTPTransport {
-    get = (url, options = {}) => {
+    get = (url, options: Options) => {
 
         return this.request(url, {...options, method: METHODS.GET}, options.timeout);
     };
 
-    post = (url, options = {}) => {
+    post = (url, options: Options) => {
 
         return this.request(url, {...options, method: METHODS.POST}, options.timeout);
     };
 
-    put = (url, options = {}) => {
+    put = (url: string, options: Options) => {
 
-        return this.request(url, {...options, method: METHODS.PUT}, options.timeout);
+        return this.request(url , {...options, method: METHODS.PUT}, options.timeout);
     };
 
-    delete = (url, options = {}) => {
+    delete = (url, options: Options) => {
 
         return this.request(url, {...options, method: METHODS.DELETE}, options.timeout);
     };
