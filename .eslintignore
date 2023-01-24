@@ -1,0 +1,9 @@
+node_modules
+build
+.parcel-cache
+.github
+.idea
+package-lock.json
+/build
+**/*.min.js
+/node_modules

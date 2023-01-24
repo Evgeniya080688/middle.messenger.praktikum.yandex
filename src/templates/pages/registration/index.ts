@@ -81,7 +81,7 @@ export const regPage = new Registration (
                     console.log('Я сейчас отправлю форму регистрации')
                 },}
         }),
-        stl: {form: 'reg-form', link: 'form-link'},
+        stl: {form: 'reg-form', link: 'form-link', error: 'error', success: 'success'},
         events: {
 
         }

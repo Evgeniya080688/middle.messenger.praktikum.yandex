@@ -13,21 +13,17 @@
     font-weight: 400;
 }
 
-input:valid {
-    border-color: @green;
-}
-
-input:invalid {
-    border-color: @red;
-}
-
 .error {
     display: none;
     color: @fire;
     font-size: 0.8em;
 }
 
-input:not(:focus):invalid + .error {
-    display: block;
+.success {
+    display: none;
+    color: @grass;
+    font-size: 0.8em;
 }
+
+
 

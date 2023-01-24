@@ -5,6 +5,8 @@ export interface Props {
     [key: string]: any;
     tagName?: string;
     events?: { [eventName: string]: EventListener };
+    onFocus?: (event: Event  | undefined) => void;
+    onBlur?: (event: Event  | undefined) => void;
 }
 
 export class Block {

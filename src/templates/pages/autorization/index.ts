@@ -1,7 +1,7 @@
 import Input from "../../components/input/input";
 import Submit from "../../components/submit/submit";
 import SignIn from "./autorization";
-import {Patterns} from "../../../service/patterns";
+import {LOGIN_PATTERN, PASSWORD_PATTERN} from "../../../service/patterns";
 
 export const signPage = new SignIn (
     'section',
@@ -14,22 +14,21 @@ export const signPage = new SignIn (
             value: '',
             placeholder: 'Введите логин',
             required: true,
-            stl: {input: 'form-input', label: 'form-label'},
-            pattern: Patterns.login,
+            error: 'ошибка',
+            success: 'Все верно, ура!',
+            stl: {input: 'form-input', label: 'form-label', error: 'error', success: 'success'},
+            pattern: '^[A-Za-z0-9]{3,20}$',
             events: {
                 blur: (e: Event) => {
                     //const t = e.target;
                     e.preventDefault();
                     console.log('блюр');
-
-                    // if (typeof t == '') {
-                    //     t.validate(t);
-                    // }
                 },
                 focus: (e: Event) => {
+                    //const t = e.target;
                     e.preventDefault();
-
-                }
+                    console.log('focus');
+                },
             }
         }),
         password: new Input ({
@@ -38,8 +37,10 @@ export const signPage = new SignIn (
             type: 'password',
             value: '',
             placeholder: 'Введите пароль',
+            pattern: PASSWORD_PATTERN,
             required: true,
-            stl: {input: 'form-input', label: 'form-label'}
+            error: 'ошибка',
+            stl: {input: 'form-input', label: 'form-label', error: 'error'}
         }),
         submit: new Submit ({
             id: 'signin',
@@ -54,7 +55,7 @@ export const signPage = new SignIn (
                     console.log('Я сейчас отправлю форму авторизации')
                 },}
         }),
-        stl: {form: 'reg-form', link: 'form-link', error: 'error'},
+        stl: {form: 'reg-form', link: 'form-link', error: 'error', success: 'success'},
     }
 );
 

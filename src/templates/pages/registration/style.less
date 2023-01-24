@@ -24,6 +24,22 @@
         border: none;
         border-bottom: 2px solid @deeppurple;
         outline: none;
+
+
+        &:valid:not(:placeholder-shown) {
+            border-color: green;
+        }
+
+        &:invalid:not(:placeholder-shown) {
+            border-color: red;
+        }
+        &:invalid:not(:placeholder-shown) + .error {
+            display: block;
+        }
+        &:valid:not(:placeholder-shown) + .success {
+            display: block;
+        }
+
     }
 
     .form-link {

@@ -43,15 +43,15 @@ export default class SignIn extends Block {
         console.log(data);
     }
 
-    addEvents() {
-        //this._element.addEventListener('submit', test);
-
-        // this._element.querySelectorAll('input').forEach((input: HTMLElement) => {
-        //     input.addEventListener('blur', (<Props>this)._props.events.blur);
-        //     input.addEventListener('focus', (<Props>this)._props.events.blur);
-        // });
-        //super.addEvents();
-    }
+    // addEvents() {
+    //     //this._element.addEventListener('submit', test);
+    //
+    //     this._element.querySelectorAll('input').forEach((input: HTMLElement) => {
+    //         input.addEventListener('blur', (<Props>this)._props.events.blur);
+    //         input.addEventListener('focus', (<Props>this)._props.events.blur);
+    //     });
+    //     super.addEvents();
+    // }
 }
 
 

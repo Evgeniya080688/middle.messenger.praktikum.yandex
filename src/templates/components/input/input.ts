@@ -1,11 +1,16 @@
-import {Block} from '../../../utils/Block';
+import {Block, Props} from '../../../utils/Block';
 import tpl from "./tpl";
 import './style.less';
 
+
 export default class Input extends Block {
-    constructor(props) {
+    constructor(props: Props) {
         // Создаём враппер дом-элемент input
-        super("div", props);
+        super("div", {...props,
+            events: {
+                focus: props.onFocus,
+                blur: props.onBlur
+            }});
     }
 
     render() {
